@@ -8,6 +8,7 @@
     <script src="http://chatroom.bmob.cn/javascripts/jquery.min.js"></script>
     <script src="http://chatroom.bmob.cn/javascripts/bmobSocketIo.js"></script>
     <script src="http://chatroom.bmob.cn/javascripts/bmob.js"></script>
+    <script type="text/javascript" src="push.js"></script>
 </head>
 <body>
     <h1>chat room demo</h1>
@@ -70,6 +71,10 @@
         var content=$("#data");
         var p = '<p><span style="color:red;">' + data.name+'</span>  '+'<span style="color:green;">'+ data.createdAt+'</span>  '+ ' :<br/> '+data.content+'</p><br/><br/>';
         content.html(content.html()+p);
+
+        Push.create('有新消息!', {
+                    body: data.name
+                });
      }
    };
 
